@@ -136,11 +136,13 @@ public class Eser {
 		Scanner input = new Scanner(System.in);
 		System.out.println("inserisci un numero :");
 		int n= input.nextInt();
-		int cont=1;
-		for(int i=1;i<=n;i++) {
-			for(int j=1; j<=cont; j++) {
+		int cont1=0, cont2=0;
+		for(int i=1;i<n; i++) {
+			if(){
 				
 			}
+			System.out.println(i);
+			
 		}
 		
 	}
