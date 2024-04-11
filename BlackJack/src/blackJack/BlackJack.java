@@ -82,8 +82,12 @@ public class BlackJack {
 				    System.out.println("carta per il player "+10);
 					break;
 				case 1:
-					manoPlayer = manoPlayer+11;
 					System.out.println("carta per il player asso");
+					if(manoPlayer<11) 
+						manoPlayer = manoPlayer+11;
+					else {
+						manoPlayer = manoPlayer+1;
+					}
 					break;
 				}
 				System.out.println("mano player "+manoPlayer);
@@ -117,8 +121,12 @@ public class BlackJack {
 						    System.out.println("carta per il banco "+10);
 							break;
 						case 1:
-							manoBanco = manoBanco+11;
 							System.out.println("carta per il banco asso");
+							if(manoBanco<11) 
+								manoBanco = manoBanco+11;
+							else {
+								manoBanco = manoBanco+1;
+							}
 							break;
 						}
 					} 
