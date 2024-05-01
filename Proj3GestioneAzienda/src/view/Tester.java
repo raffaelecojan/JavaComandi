@@ -9,11 +9,14 @@ public class Tester {
 	
 	public static void main(String[] args) {
 	
-		ArrayList<Dipendente> dipendente1 = new ArrayList<>();
 		AziendaCtrl azienda = new AziendaCtrl();
 		azienda.aggiungiDipendente("raffaele", "cojan", 1, "Manager");
-		azienda.aggiungiDipendente("dario", "coo", 2, "Programmatore");
-		azienda.aggiungiDipendente("simone", "gnoo", 2, "Stagista");
+		azienda.aggiungiDipendente("fabio", "cojan", 2, "Stagista");
+		azienda.aggiungiDipendente("armando", "bianchi", 3, "dipendente");
+		azienda.aggiungiDipendente("francesca", "totti", 4, "dipendente");
+		azienda.aggiungiDipendente("lorenzo", "totti", 5, "Programmatore");
+		azienda.aggiungiDipendente("chiara", "rossi", 6, "Manager");
 		azienda.mostraDipendenti();
+		azienda.info();
 	}
 }

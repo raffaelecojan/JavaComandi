@@ -22,7 +22,7 @@ public class Dipendente {
 	@Override
 	public String toString() {
 		return "Dipendente [nome=" + nome + ", cognome=" + cognome + ", numMatricola="
-				+ numMatricola + ", ruolo=" + ruolo + "]";
+				+ numMatricola + "]";
 	}
 
 
