@@ -18,7 +18,7 @@ import com.rafcojan.service.TourService;
 
 
 @RestController
-@RequestMapping("/api/tour")
+@RequestMapping("api/tour")
 public class TourController {
 
 	@Autowired

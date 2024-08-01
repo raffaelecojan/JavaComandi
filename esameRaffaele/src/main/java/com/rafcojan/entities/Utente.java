@@ -1,9 +1,15 @@
 package com.rafcojan.entities;
 
+//import jakarta.persistence.FetchType;
+//import java.util.List;
+//import jakarta.persistence.OneToMany;
+//import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+
 import jakarta.persistence.Table;
 
 @Entity
@@ -11,7 +17,7 @@ import jakarta.persistence.Table;
 public class Utente {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int utenteId;
 	private String nome;
 	private String cognome;
 	private String username;
@@ -19,24 +25,25 @@ public class Utente {
 	private String email;
 	private boolean amministratore;
 	
-	public Utente(int id, String nome, String cognome, String username, String password, String email,
-			boolean amministratore) {
-		super();
-		this.id = id;
-		this.nome = nome;
-		this.cognome = cognome;
-		this.username = username;
-		this.password = password;
-		this.email = email;
-		this.amministratore = amministratore;
+//	@OneToMany(fetch = FetchType.LAZY, mappedBy = "utente", cascade = CascadeType.ALL)
+//    private List<Prenotazioni> prenotazione;
+	
+	
+
+//	public List<Prenotazioni> getPrenotazione() {
+//		return prenotazione;
+//	}
+//
+//	public void setPrenotazione(List<Prenotazioni> prenotazione) {
+//		this.prenotazione = prenotazione;
+//	}
+
+	public int getUtenteId() {
+		return utenteId;
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
+	public void setUtenteId(int utenteId) {
+		this.utenteId = utenteId;
 	}
 
 	public String getNome() {

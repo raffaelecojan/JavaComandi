@@ -17,7 +17,7 @@ import com.rafcojan.service.UtenteService;
 
 
 @RestController
-@RequestMapping("/api/utente")
+@RequestMapping("api/utente")
 
 public class UtenteController {
 	@Autowired

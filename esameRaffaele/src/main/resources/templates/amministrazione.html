@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutti i Tour Disponibili</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+        }
+        .container {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+        h1 {
+            color: #343a40;
+            margin-bottom: 30px;
+        }
+        .tour-list {
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        .tour-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 0;
+        }
+        .btn-custom {
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 50px;
+            transition: background-color 0.3s ease;
+            margin: 10px;
+        }
+        .btn-add {
+            background-color: #28a745;
+            color: white;
+        }
+        .btn-add:hover {
+            background-color: #218838;
+            color: white;
+        }
+        .btn-delete {
+            background-color: #dc3545;
+            color: white;
+        }
+        .btn-delete:hover {
+            background-color: #c82333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tutti i Tour Disponibili</h1>
+        <div class="tour-list" id="tourList">
+            <!-- Qui verranno inseriti i tour -->
+        </div>
+        <div>
+            <button class="btn btn-custom btn-add" onclick="apriPopup()">Aggiungi</button>
+            <button class="btn btn-custom btn-delete" onclick="eliminaTour()">Elimina</button>
+        </div>
+    </div>
+    
+    <!-- Popup per aggiungere un tour -->
+    <div class="modal fade" id="tourModal" tabindex="-1" role="dialog" aria-labelledby="tourModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="tourModalLabel">Inserisci un Tour</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="tourForm">
+                        <div class="form-group">
+                            <label for="tourName">Nome del Tour</label>
+                            <input type="text" class="form-control" id="tourName" placeholder="Nome del tour" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Aggiungi Tour</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function apriPopup() {
+            $('#tourModal').modal('show');
+        }
+
+        document.getElementById('tourForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const tourName = document.getElementById('tourName').value;
+            if (tourName) {
+                aggiungiTour(tourName);
+                $('#tourModal').modal('hide');
+                document.getElementById('tourForm').reset();
+            }
+        });
+
+        function aggiungiTour(tourName) {
+            const tourList = document.getElementById('tourList');
+            const div = document.createElement('div');
+            div.className = 'tour-item';
+            div.innerHTML = `
+                ${tourName}
+                <input type="checkbox" class="ml-2">
+            `;
+            tourList.appendChild(div);
+        }
+
+        function eliminaTour() {
+            const tourList = document.getElementById('tourList');
+            const checkboxes = tourList.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    tourList.removeChild(checkbox.parentElement);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
