@@ -4,8 +4,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "utente")
 public class Utente {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,10 +17,10 @@ public class Utente {
 	private String username;
 	private String password;
 	private String email;
-	private Boolean amministratore;
+	private boolean amministratore;
 	
 	public Utente(int id, String nome, String cognome, String username, String password, String email,
-			Boolean amministratore) {
+			boolean amministratore) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -77,11 +79,11 @@ public class Utente {
 		this.email = email;
 	}
 
-	public Boolean getAmministratore() {
+	public boolean getAmministratore() {
 		return amministratore;
 	}
 
-	public void setAmministratore(Boolean amministratore) {
+	public void setAmministratore(boolean amministratore) {
 		this.amministratore = amministratore;
 	}
 	

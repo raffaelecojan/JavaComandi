@@ -23,8 +23,8 @@ public class UtenteController {
 	@Autowired
 	private UtenteService utenteService;
 	
-	@GetMapping
-	public List<Utente> getAllVideoGiochi(){
+	@GetMapping("/allUtenti")
+	public List<Utente> getAllUtenti(){
 		return utenteService.getAllUtenti();
 	}
 	
@@ -43,10 +43,37 @@ public class UtenteController {
 		utenteService.deleteUtente(id);
 	}
 	
-//	@GetMapping("/NomeUtente")
-//	public Utente getByNome(@RequestParam String nome) {
-//		return utenteService.getByNome(nome);
-//	}
+	@GetMapping("/NomeUtente")
+	public List<Utente> getByNome(@RequestParam String nome) {
+		return utenteService.getByNome(nome);	}
+	
+	@GetMapping("/CognomeUtente")
+	public List<Utente> getByCognome(@RequestParam String cognome) {
+		return utenteService.getByCognome(cognome);	}
+	
+	@GetMapping("/UserNameUtente")
+	public List<Utente> getByUserName(@RequestParam String username) {
+		return utenteService.getByUserName(username);	}
+	
+	@GetMapping("/PasswordUtente")
+	public List<Utente> getByPassword(@RequestParam String password) {
+		return utenteService.getByPassword(password);	}
+	
+	@GetMapping("/EmailUtente")
+	public List<Utente> getByEmail(@RequestParam String email) {
+		return utenteService.getByEmail(email);	}
+	
+	@GetMapping("/AmministratoreUtente")
+	public List<Utente> getByAmministratore(@RequestParam boolean amministratore) {
+		return utenteService.getByAmministratore(amministratore);	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 

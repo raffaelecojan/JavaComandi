@@ -33,7 +33,8 @@ public class PrenotazioniService {
 	public List<Prenotazioni> getByUserId(int userId){
         return dao.findByUserId(userId);
     }
-	public List<Prenotazioni> getByUserBookingDate(String bookingDate){
+	
+	public List<Prenotazioni> getByBookingDate(String bookingDate){
         return dao.findByBookingDate(bookingDate);
     }
 
@@ -48,7 +49,7 @@ public class PrenotazioniService {
     }
 	
 	//modifica tour
-		public void modificaTour(int id, Prenotazioni prenotazioni) {
+		public void modificaUtente(int id, Prenotazioni prenotazioni) {
 			deletePrenotazione(id);
 			savePrenotazione(prenotazioni);
 		}

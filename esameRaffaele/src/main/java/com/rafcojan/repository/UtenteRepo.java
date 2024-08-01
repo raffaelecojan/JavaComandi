@@ -13,6 +13,6 @@ public interface UtenteRepo extends JpaRepository<Utente, Integer>{
 	List<Utente> findByUserName(String username);
 	List<Utente> findByPassword(String password);
 	List<Utente> findByEmail(String email);
-	List<Utente> findByAmministratore(String amministratore);
+	List<Utente> findByAmministratore(boolean amministratore);
 
 }

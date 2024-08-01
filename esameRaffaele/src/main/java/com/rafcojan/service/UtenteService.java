@@ -36,10 +36,10 @@ public class UtenteService {
 	public List<Utente> getByPassword(String password){
         return dao.findByPassword(password);
     }
-	public List<Utente> getByUserEmail(String email){
+	public List<Utente> getByEmail(String email){
         return dao.findByEmail(email);
     }
-	public List<Utente> getByAmministratore(String amministratore){
+	public List<Utente> getByAmministratore(boolean amministratore){
         return dao.findByAmministratore(amministratore);
     }
 	
@@ -53,7 +53,7 @@ public class UtenteService {
     }
 	
 	//modifica Utente
-		public void modificaTour(int id, Utente utente) {
+		public void modificaUtente(int id, Utente utente) {
 			deleteUtente(id);
 			saveUtente(utente);
 		}

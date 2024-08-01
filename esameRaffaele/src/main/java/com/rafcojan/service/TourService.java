@@ -29,7 +29,7 @@ public class TourService {
 	public List<Tour> getByType(String type){
         return dao.findByType(type);
     }
-	public List<Tour> getByUserCapacity(int capacity){
+	public List<Tour> getByCapacity(int capacity){
         return dao.findByCapacity(capacity);
     }
 	public List<Tour> getByAvailability(boolean availability){
